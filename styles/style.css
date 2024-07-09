@@ -1,4 +1,4 @@
-* {
+body {
   background-color: #f3f3f3;
   font-family: Poppins;
 }
@@ -43,14 +43,116 @@
   text-align: center;
 }
 .balance-heading {
+  display: flex;
   font-size: 1.5rem;
   font-weight: 500;
-  /* margin-bottom: -0.2rem; */
   text-align: center;
+  align-items: center;
 }
 .balance-amount {
   display: flex;
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   font-weight: 400;
   text-align: center;
+}
+.rec-and-cards {
+  display: flex;
+  justify-content: space-between;
+}
+.records {
+  width: 55%;
+  height: 450px;
+  overflow: auto;
+
+  background-color: #fff;
+  margin: 5px;
+  padding: 20px;
+  border-radius: 4px;
+}
+.cards {
+  width: 45%;
+  height: 600px;
+  margin: 5px;
+}
+.card-content {
+  background-image: linear-gradient(to top left, #ffb003, #ffcb03);
+  border-radius: 8px;
+  margin: 0px 0px 15px 15px;
+  /* margin: 15px; */
+}
+
+.rec {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0px;
+}
+.left {
+  display: flex;
+}
+.movements {
+  background-image: linear-gradient(to top left, #39b385, #9be15d);
+  font-size: 12px;
+  padding: 1px 8px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+.date {
+  margin-left: 20px;
+  font-size: 12;
+  display: flex;
+  align-items: center;
+}
+.amount {
+  font-size: 24px !important;
+}
+.card-content {
+  padding: 20px;
+}
+.card-title {
+  margin-bottom: 20px;
+}
+.inputs {
+  /* margin: 20px 0px 5px 0px; */
+  margin: 10px 0px;
+  display: flex;
+  justify-content: center;
+}
+.label-one {
+  text-align: center;
+  margin-left: 30px;
+}
+.label-two {
+  text-align: center;
+  margin-left: 70px;
+}
+.card-input {
+  width: 30%;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.4);
+  font-family: inherit;
+  font-size: 1rem;
+  text-align: center;
+  color: #333;
+  padding: 0.2rem 1rem;
+  border-radius: 0.7rem;
+  transition: all 0.3s;
+  margin: 4px;
+}
+.card-btn {
+  border: none;
+  border-radius: 0.7rem;
+  font-size: 1.2rem;
+  background-color: #fff;
+  cursor: pointer;
+  width: 50px;
+  transition: all 0.3s;
+  padding: 0px;
+  height: 30px;
+  margin: 5px;
+}
+.container {
+  display: flex;
+  justify-content: space-between; /* or any other alignment you prefer */
 }
