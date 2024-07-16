@@ -36,6 +36,8 @@ body {
 }
 .content {
   margin: 0px 150px;
+  opacity: 0;
+  transition: all 1s;
 }
 .balance {
   display: flex;

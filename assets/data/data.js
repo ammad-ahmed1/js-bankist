@@ -48,3 +48,5 @@ const data = [
     amount: "200,00 €",
   },
 ];
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+export default movements;
