@@ -56,6 +56,9 @@ const transferBtn = document.querySelector(".transfer-btn");
 const closeUserNameInput = document.querySelector(".card-username-input");
 const closePswInput = document.querySelector(".card-pin-input");
 const closeAccBtn = document.querySelector(".close-acc-btn");
+const loanInput = document.querySelector(".loan-input");
+const loanBtn = document.querySelector(".loan-btn");
+const sortBtn = document.querySelector(".sort-btn");
 let currentAcc;
 // -----functions-----
 const createUserName = function (accs) {
@@ -71,8 +74,10 @@ const updateUI = function (acc) {
   calcPrintBalance(acc);
   calcDisplaySummary(acc?.movements);
 };
-const displayTransactions = function (movements) {
-  movements?.forEach(function (mov, i) {
+const displayTransactions = function (movements, sort = false) {
+  cardClass.innerHTML = ""; // Clear existing entries
+  const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
+  movs?.forEach(function (mov, i) {
     const type = mov > 0 ? "Deposit" : "Withdrawal";
     const html = `
     <div class="rec">
@@ -151,6 +156,15 @@ transferBtn.addEventListener("click", function (e) {
     console.log("Transfer invalid ");
   }
 });
+loanBtn.addEventListener("click", function (e) {
+  e.preventDefault();
+  const amount = Number(loanInput.value);
+  if (amount > 0 && currentAcc.movements.some((mov) => mov > amount / 10)) {
+    currentAcc.movements.push(amount);
+    updateUI(currentAcc);
+  }
+  loanInput.value = "";
+});
 closeAccBtn.addEventListener("click", function (e) {
   e.preventDefault();
   console.log("Closing acc");
@@ -176,6 +190,10 @@ closeAccBtn.addEventListener("click", function (e) {
     dashboardScreen.style.opacity = 0;
     closeUserNameInput.value = closePswInput.value = "";
   }
+});
+sortBtn.addEventListener("click", function (e) {
+  e.preventDefault();
+  displayTransactions(currentAcc.movements, true);
 });
 // ----function calls----
 // displayTransactions(currentAcc?.movements);
